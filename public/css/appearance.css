@@ -1,0 +1,342 @@
+/* ============================================================
+   مدار — Design System
+   Unified palette + shared motion utilities for all pages.
+   Light theme: warm paper + deep teal ink. Dark: deep forest.
+   ============================================================ */
+
+:root[data-theme="light"] {
+    color-scheme: light;
+    --bg: #f4f7f5;
+    --background: #f4f7f5;
+    --paper: #f8faf8;
+    --card: #fff;
+    --surface: #fff;
+    --surface-raised: #edf6f3;
+    --surface-soft: #f7faf9;
+    --surface-solid: rgba(255, 255, 255, .96);
+    --row: #f7faf9;
+    --track: #dce9e5;
+    --field: #f7faf9;
+    --input: #fff;
+    --ink: #172b28;
+    --text: #172b28;
+    --ink-2: #435a54;
+    --subtle: #435a54;
+    --muted: #657a75;
+    --mut: #657a75;
+    --line: #e1eae5;
+    --border: #e1eae5;
+    --acc: #147866;
+    --acc2: #e2f3ed;
+    --acc-soft: #e2f3ed;
+    --brand: #147866;
+    --brand-dark: #0e564a;
+    --brand-soft: #e2f3ed;
+    --brand-line: #a9d6c8;
+    --accent: #147866;
+    --mint: #dff3ec;
+    --white: #fff;
+    --teal: #0b3b3c;
+    --teal-2: #10504f;
+    --gold: #d38c19;
+    --gold-soft: #fbf0dc;
+    --blue: #3966bd;
+    --blue-soft: #eaf0fc;
+    --red: #b3261e;
+    --red-soft: #fdecea;
+    --green-hero: linear-gradient(125deg, #0d5b4d, #18826c);
+    --shadow: 0 12px 28px rgba(23, 37, 34, .08);
+    --shadow-up: 0 4px 8px rgba(23, 37, 34, .06), 0 20px 44px rgba(23, 37, 34, .14);
+    --radius: 16px;
+    --radius-sm: 11px;
+    --motion-ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #101a17;
+    --background: #101a17;
+    --paper: #101a17;
+    --card: #182521;
+    --surface: #182521;
+    --surface-raised: #20332d;
+    --surface-soft: #13211d;
+    --surface-solid: rgba(24, 37, 33, .96);
+    --row: #13211d;
+    --track: #2b4038;
+    --field: #13211d;
+    --input: #13211d;
+    --ink: #e4efea;
+    --text: #e4efea;
+    --ink-2: #b8cac4;
+    --subtle: #b8cac4;
+    --muted: #a3b7ae;
+    --mut: #a3b7ae;
+    --line: #2b4038;
+    --border: #2b4038;
+    --acc: #69d2ae;
+    --acc2: #203a32;
+    --acc-soft: #203a32;
+    --brand: #69d2ae;
+    --brand-dark: #9be4c9;
+    --brand-soft: #203a32;
+    --brand-line: #356052;
+    --accent: #69d2ae;
+    --mint: #203a32;
+    --white: #182521;
+    --teal: #10211d;
+    --teal-2: #19312c;
+    --gold: #f2c879;
+    --gold-soft: #3a301c;
+    --blue: #8fb4f2;
+    --blue-soft: #1c2a44;
+    --red: #ff9d91;
+    --red-soft: #3c211e;
+    --green-hero: linear-gradient(125deg, #0a4a3f, #14665a);
+    --shadow: 0 12px 28px rgba(0, 0, 0, .24);
+    --shadow-up: 0 4px 8px rgba(0, 0, 0, .3), 0 20px 44px rgba(0, 0, 0, .4);
+    --radius: 16px;
+    --radius-sm: 11px;
+    --motion-ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+html[data-theme="dark"] body {
+    color: var(--ink);
+    background-color: var(--bg);
+}
+
+html[data-theme="dark"] :is(.panel, .card, .stat, .empty, .empty-card, .course-card, .feature-card, .teacher-card, .review-card, .faq-list details, .profile-card, .form-card, .result-card) {
+    border-color: var(--line);
+    background-color: var(--surface, var(--card));
+    color: var(--ink);
+}
+
+html[data-theme="dark"] :is(input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="hidden"]), select, textarea) {
+    border-color: var(--line);
+    background-color: var(--field, var(--surface));
+    color: var(--ink);
+}
+
+html[data-theme="dark"] :is(input, select, textarea)::placeholder {
+    color: var(--muted);
+}
+
+html[data-theme="dark"] :is(table, th, td, .panel-heading, .panel-head, .toolbar, .list-row, .course-row, .notification-link) {
+    border-color: var(--line);
+}
+
+html[data-theme="light"] body {
+    color: var(--ink);
+    background-color: var(--bg, var(--paper));
+}
+
+/* ============================================================
+   Motion system — reveal on scroll + entrance animations
+   ============================================================ */
+
+@keyframes md-rise {
+    from {
+        opacity: 0;
+        transform: translateY(22px) scale(.985);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes md-fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes md-pop {
+    0% {
+        opacity: 0;
+        transform: scale(.88);
+    }
+
+    60% {
+        transform: scale(1.03);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes md-float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-9px);
+    }
+}
+
+@keyframes md-shimmer {
+    from {
+        background-position: 200% 0;
+    }
+
+    to {
+        background-position: -200% 0;
+    }
+}
+
+@keyframes md-progress-sweep {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* Staggered entrance for direct children of containers */
+.motion-ready .md-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .7s var(--motion-ease), transform .7s var(--motion-ease);
+    will-change: opacity, transform;
+}
+
+.motion-ready .md-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Auto-stagger inside any parent with .md-stagger */
+.md-stagger>* {
+    animation: md-rise .65s var(--motion-ease) both;
+}
+
+.md-stagger>*:nth-child(1) {
+    animation-delay: .02s;
+}
+
+.md-stagger>*:nth-child(2) {
+    animation-delay: .09s;
+}
+
+.md-stagger>*:nth-child(3) {
+    animation-delay: .16s;
+}
+
+.md-stagger>*:nth-child(4) {
+    animation-delay: .23s;
+}
+
+.md-stagger>*:nth-child(5) {
+    animation-delay: .30s;
+}
+
+.md-stagger>*:nth-child(6) {
+    animation-delay: .37s;
+}
+
+.md-stagger>*:nth-child(7) {
+    animation-delay: .44s;
+}
+
+.md-stagger>*:nth-child(8) {
+    animation-delay: .51s;
+}
+
+.md-stagger>*:nth-child(9) {
+    animation-delay: .58s;
+}
+
+.md-stagger>*:nth-child(n+10) {
+    animation-delay: .65s;
+}
+
+/* Floating accent (cards, badges) */
+.md-float {
+    animation: md-float 5.5s ease-in-out infinite;
+}
+
+.md-float-slow {
+    animation: md-float 7.5s ease-in-out infinite;
+}
+
+/* Universal hover lift for cards */
+.md-lift {
+    transition: transform .28s var(--motion-ease), box-shadow .28s var(--motion-ease), border-color .28s var(--motion-ease);
+}
+
+.md-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-up);
+}
+
+/* Buttons micro-interaction */
+.md-btn {
+    position: relative;
+    overflow: hidden;
+    transition: transform .18s var(--motion-ease), box-shadow .18s var(--motion-ease), background .18s;
+}
+
+.md-btn:hover {
+    transform: translateY(-2px);
+}
+
+.md-btn:active {
+    transform: translateY(0) scale(.97);
+}
+
+/* Progress bars fill smoothly */
+.md-fill {
+    transition: width 1.1s var(--motion-ease);
+}
+
+/* Scrollbar polish */
+.md-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--brand-line) transparent;
+}
+
+.md-scroll::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.md-scroll::-webkit-scrollbar-thumb {
+    border-radius: 99px;
+    background: var(--brand-line);
+}
+
+.md-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .motion-ready .md-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .md-stagger>*,
+    .md-float,
+    .md-float-slow {
+        animation: none !important;
+    }
+
+    .md-lift:hover,
+    .md-btn:hover,
+    .md-btn:active {
+        transform: none;
+    }
+}

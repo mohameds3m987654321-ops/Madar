@@ -1,0 +1,310 @@
+.page-guide-trigger {
+    position: fixed;
+    z-index: 1000;
+    inset-inline-end: 18px;
+    bottom: 18px;
+    min-height: 46px;
+    padding: 10px 16px;
+    border: 1px solid var(--brand-line, var(--line, #2b4038));
+    border-radius: 999px;
+    background: var(--surface, var(--card, #182521));
+    color: var(--ink, #e4efea);
+    box-shadow: var(--shadow, 0 8px 24px rgba(0, 0, 0, .2));
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.page-guide-trigger:hover {
+    border-color: var(--accent, #69d2ae);
+    color: var(--accent, #69d2ae);
+}
+
+.page-guide-dialog {
+    width: min(620px, calc(100% - 28px));
+    max-height: min(82vh, 760px);
+    padding: 0;
+    overflow: auto;
+    border: 1px solid var(--line, #2b4038);
+    border-radius: 20px;
+    background: var(--surface, var(--card, #182521));
+    color: var(--ink, #e4efea);
+    box-shadow: 0 24px 90px rgba(0, 0, 0, .38);
+    font-family: inherit;
+}
+
+.page-guide-dialog::backdrop {
+    background: rgba(5, 15, 12, .64);
+    backdrop-filter: blur(4px);
+}
+
+.page-guide-content {
+    padding: clamp(20px, 5vw, 32px);
+}
+
+.page-guide-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.page-guide-header h2 {
+    margin: 0 0 8px;
+    font-size: 1.35rem;
+}
+
+.page-guide-header p,
+.page-guide-script,
+.page-guide-list {
+    color: var(--muted, #a3b7ae);
+}
+
+.page-guide-close {
+    flex: none;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line, #2b4038);
+    border-radius: 11px;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-size: 1.35rem;
+    cursor: pointer;
+}
+
+.page-guide-dialog h3 {
+    margin: 22px 0 8px;
+    font-size: 1rem;
+}
+
+.page-guide-list {
+    display: grid;
+    gap: 7px;
+    padding-inline-start: 22px;
+}
+
+.page-guide-script {
+    margin: 0;
+    padding: 14px 16px;
+    border-inline-start: 3px solid var(--accent, #69d2ae);
+    border-radius: 10px;
+    background: var(--surface-soft, var(--row, rgba(0, 0, 0, .12)));
+    line-height: 1.8;
+}
+
+.page-guide-link {
+    display: inline-flex;
+    margin-top: 22px;
+    color: var(--accent, #69d2ae);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.page-guide-link:hover {
+    text-decoration: underline;
+}
+
+.guide-page {
+    min-height: 100vh;
+    padding: 36px 0 64px;
+    background: var(--bg, var(--paper));
+    color: var(--ink);
+    font-family: "IBM Plex Sans Arabic", Tahoma, Arial, sans-serif;
+    line-height: 1.75;
+}
+
+.guide-container {
+    width: min(1080px, calc(100% - 32px));
+    margin: auto;
+}
+
+.guide-heading {
+    margin-bottom: 28px;
+    padding: clamp(20px, 5vw, 36px);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: var(--surface, var(--card));
+}
+
+.guide-heading h1 {
+    margin: 0 0 10px;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.guide-heading p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.guide-notice {
+    margin-top: 18px !important;
+    padding: 12px 15px;
+    border-radius: 12px;
+    background: var(--brand-soft, var(--mint));
+    color: var(--ink) !important;
+}
+
+.guide-category {
+    margin-top: 34px;
+}
+
+.guide-category > h2 {
+    margin: 0 0 14px;
+    font-size: 1.45rem;
+}
+
+.guide-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.guide-card {
+    min-width: 0;
+    padding: 20px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--surface, var(--card));
+}
+
+.guide-card h3 {
+    margin: 0 0 8px;
+    font-size: 1.08rem;
+}
+
+.guide-card p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.guide-card h4 {
+    margin: 16px 0 6px;
+    font-size: .94rem;
+}
+
+.guide-card ul {
+    display: grid;
+    gap: 5px;
+    margin: 0;
+    padding-inline-start: 22px;
+    color: var(--muted);
+}
+
+.guide-card details {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+}
+
+.guide-card summary {
+    color: var(--accent, var(--brand));
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.guide-card details p {
+    margin-top: 10px;
+}
+
+.guide-home-link {
+    display: inline-flex;
+    margin-bottom: 20px;
+    color: var(--accent, var(--brand));
+    font-weight: 700;
+    text-decoration: none;
+}
+
+@media (max-width: 640px) {
+    .guide-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-guide-trigger {
+        inset-inline-end: 12px;
+        bottom: 12px;
+    }
+}
+.guide-site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    margin-bottom: 24px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    background: var(--surface-solid, var(--surface, var(--card)));
+    backdrop-filter: blur(16px);
+}
+
+.guide-site-nav {
+    width: min(1080px, calc(100% - 32px));
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.guide-site-brand {
+    color: var(--brand);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+.guide-site-links {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.guide-site-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: .92rem;
+}
+
+.guide-site-links a:hover {
+    color: var(--brand);
+}
+
+.guide-site-links a[aria-current="page"] {
+    color: var(--brand);
+}
+
+.guide-theme-toggle {
+    min-width: 42px;
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--surface, var(--card));
+    color: var(--ink);
+    font: inherit;
+    cursor: pointer;
+}
+
+.guide-theme-toggle svg {
+    width: 20px;
+    height: 20px;
+}
+
+.guide-card-link {
+    display: inline-flex;
+    margin-top: 14px;
+    color: var(--accent, var(--brand));
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.guide-card-link:hover {
+    text-decoration: underline;
+}
+

@@ -1,0 +1,264 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Relation ''(lessons|reviews|teacher)'' is not found in App\\Models\\Course model\.$#'
+			identifier: larastan.relationExistence
+			path: routes/web.php
+
+		-
+			message: '#^Relation ''courses'' is not found in App\\Models\\User model\.$#'
+			identifier: larastan.relationExistence
+			count: 3
+			path: routes/web.php
+
+		-
+			message: '#^Strict comparison using !== between int<0, max> and null will always evaluate to true\.$#'
+			identifier: notIdentical.alwaysTrue
+			count: 1
+			path: routes/web.php
+
+		-
+			message: '#^Relation ''course'' is not found in App\\Models\\CourseCertificate model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/CertificateVerificationController.php
+
+		-
+			message: '#^Relation ''user'' is not found in App\\Models\\CourseCertificate model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/CertificateVerificationController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Course\:\:\$enrollments\.$#'
+			identifier: property.notFound
+			count: 3
+			path: app/Http/Controllers/CourseController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Course\:\:\$lessons_count\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Http/Controllers/CourseController.php
+
+		-
+			message: '#^Relation ''enrollments'' is not found in App\\Models\\Course model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Http/Controllers/CourseController.php
+
+		-
+			message: '#^Relation ''lessons'' is not found in App\\Models\\Course model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Http/Controllers/CourseController.php
+
+		-
+			message: '#^Relation ''reviews'' is not found in App\\Models\\Course model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Http/Controllers/CourseController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Lesson\:\:\$course\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/LessonCommentController.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:notify\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Http/Controllers/LessonCommentController.php
+
+		-
+			message: '#^Variable \$parent might not be defined\.$#'
+			identifier: variable.undefined
+			count: 2
+			path: app/Http/Controllers/LessonCommentController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Lesson\:\:\$course\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Http/Controllers/LessonController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Lesson\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\Lesson\>\:\:\$course\.$#'
+			identifier: property.notFound
+			count: 3
+			path: app/Http/Controllers/LessonController.php
+
+		-
+			message: '#^Method App\\Http\\Controllers\\LessonController\:\:ensureCourseOwnership\(\) is unused\.$#'
+			identifier: method.unused
+			count: 1
+			path: app/Http/Controllers/LessonController.php
+
+		-
+			message: '#^Relation ''lessons'' is not found in App\\Models\\Course model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/LessonController.php
+
+		-
+			message: '#^Relation ''refundRequest'' is not found in App\\Models\\CourseEnrollment model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/PaymentController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\QuizAttempt\:\:\$quiz\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/QuizController.php
+
+		-
+			message: '#^Cannot call method copy\(\) on string\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/QuizController.php
+
+		-
+			message: '#^Parameter \#1 \$value of function collect expects Illuminate\\Contracts\\Support\\Arrayable\<\(int\|string\), mixed\>\|iterable\<\(int\|string\), mixed\>\|null, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/QuizController.php
+
+		-
+			message: '#^Parameter \#2 \$array of function array_map expects array, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/QuizController.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$couponRedemption\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/RefundRequestController.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:notify\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Http/Controllers/RefundRequestController.php
+
+		-
+			message: '#^Match expression does not handle remaining value\: mixed$#'
+			identifier: match.unhandled
+			count: 1
+			path: app/Http/Controllers/SearchController.php
+
+		-
+			message: '#^Parameter \#1 \$relations of method Illuminate\\Database\\Eloquent\\Builder\<App\\Models\\User\>\:\:with\(\) expects ''courses''\|array\<''courses''\|int, array\<mixed\>\|\(Closure\(Illuminate\\Database\\Eloquent\\Relations\\Relation\<\*, \*, \*\>\)\: mixed\)\|string\>, array\{courses\: Closure\(Illuminate\\Database\\Eloquent\\Relations\\HasMany\)\: Illuminate\\Database\\Eloquent\\Relations\\HasMany\} given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/SearchController.php
+
+		-
+			message: '#^Relation ''courses'' is not found in App\\Models\\User model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/SearchController.php
+
+		-
+			message: '#^Relation ''reviews'' is not found in App\\Models\\Course model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Http/Controllers/SearchController.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$lessons\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/UserController.php
+
+		-
+			message: '#^Parameter \#1 \$view of function view expects view\-string\|null, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/UserController.php
+
+		-
+			message: '#^Match expression does not handle remaining value\: string$#'
+			identifier: match.unhandled
+			count: 1
+			path: app/Jobs/FinalizeMediaUpload.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\CourseEnrollment\:\:\$earnings_cents\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Jobs/GenerateReport.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\CourseEnrollment\:\:\$payment_count\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Jobs/GenerateReport.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\CourseEnrollment\:\:\$student_count\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Jobs/GenerateReport.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\CourseEnrollment\:\:\$title\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Jobs/GenerateReport.php
+
+		-
+			message: '#^Parameter \#1 \$callback of method Illuminate\\Database\\Eloquent\\Collection\<int,App\\Models\\CourseEnrollment\>\:\:map\(\) contains unresolvable type\.$#'
+			identifier: argument.unresolvableType
+			count: 1
+			path: app/Jobs/GenerateReport.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Lesson\:\:\$course\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/LessonPolicy.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Observers/CourseEnrollmentObserver.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$role\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Observers/CourseEnrollmentObserver.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$teacher\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Observers/CourseEnrollmentObserver.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$title\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Observers/CourseEnrollmentObserver.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>id" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Providers/AppServiceProvider.php
+
+		-
+			message: '#^Cannot call method isFuture\(\) on string\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Services/CouponService.php
+
+		-
+			message: '#^Cannot call method isPast\(\) on string\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Services/CouponService.php

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منصة مدار — مخطط المشروع</title>
+<style>
+  :root {
+    --bg: #0d1b1a;
+    --panel: #122724;
+    --panel2: #16312d;
+    --brand: #18c7a3;
+    --brand-line: #1f4a43;
+    --text: #e8f5f1;
+    --muted: #9bbcb4;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background: radial-gradient(1200px 600px at 80% -10%, #163a34 0%, var(--bg) 60%);
+    color: var(--text);
+    padding: 40px 28px;
+  }
+  .wrap { max-width: 1200px; margin: auto; }
+  header { text-align: center; margin-bottom: 34px; }
+  header h1 { font-size: 2rem; color: var(--brand); }
+  header p { color: var(--muted); margin-top: 6px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 18px;
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--brand-line);
+    border-radius: 14px;
+    padding: 20px 22px;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: var(--brand);
+    margin-bottom: 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .card ul { list-style: none; }
+  .card li {
+    color: var(--text);
+    font-size: .88rem;
+    padding: 5px 0;
+    border-bottom: 1px dashed #1e3d37;
+  }
+  .card li:last-child { border-bottom: none; }
+  .card li::before { content: "◂ "; color: var(--brand); }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 30px 0;
+  }
+  .stat {
+    background: var(--panel2);
+    border: 1px solid var(--brand-line);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+  }
+  .stat strong { display: block; font-size: 1.7rem; color: var(--brand); }
+  .stat span { color: var(--muted); font-size: .8rem; }
+  .flow {
+    background: var(--panel);
+    border: 1px solid var(--brand-line);
+    border-radius: 14px;
+    padding: 22px;
+    margin-top: 18px;
+  }
+  .flow h2 { color: var(--brand); font-size: 1.05rem; margin-bottom: 14px; }
+  .steps { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .step {
+    background: var(--panel2);
+    border: 1px solid var(--brand-line);
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: .82rem;
+  }
+  .arrow { color: var(--brand); font-weight: bold; }
+  .roles { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+  .role {
+    flex: 1; min-width: 200px;
+    background: var(--panel2);
+    border: 1px solid var(--brand-line);
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+  }
+  .role b { color: var(--brand); display: block; margin-bottom: 6px; }
+  .role small { color: var(--muted); font-size: .78rem; line-height: 1.6; }
+  footer { text-align: center; color: var(--muted); font-size: .8rem; margin-top: 28px; }
+  .ok { color: var(--brand); font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>🏫 منصة مدار التعليمية</h1>
+    <p>Laravel 12 · MySQL · Paymob · Horizon · Sentry — منصة كورسات عربية للتعليم المصري</p>
+  </header>
+
+  <div class="roles">
+    <div class="role"><b>👨‍🎓 الطالب</b><small>تصفح الكاتالوج · اشتراك · مشاهدة فيديوهات · اختبارات · شهادات</small></div>
+    <div class="role"><b>👨‍🏫 المدرّس</b><small>إنشاء كورسات ومحاضرات · كوبونات · تقارير Excel · إحصائيات كاملة</small></div>
+    <div class="role"><b>🛡️ الأدمن</b><small>إدارة المستخدمين · مراجعة الاستردادات · Horizon · 2FA إلزامي</small></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><strong>136</strong><span>اختبار ناجح ✓</span></div>
+    <div class="stat"><strong>788</strong><span>Assertion</span></div>
+    <div class="stat"><strong>14</strong><span>Model</span></div>
+    <div class="stat"><strong>23</strong><span>Migration</span></div>
+    <div class="stat"><strong>36</strong><span>Blade View</span></div>
+    <div class="stat"><strong>25</strong><span>ملف اختبار</span></div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>💳 المدفوعات (Paymob)</h2>
+      <ul>
+        <li>Checkout + HMAC SHA-512 verification</li>
+        <li>Transactions + lockForUpdate (صفر race conditions)</li>
+        <li>Vodafone Cash و Fawry integrations</li>
+        <li>كورسات مجانية وكوبونات 100%</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>🎓 التعلم والتقييم</h2>
+      <ul>
+        <li>تتبع فيديو تفاعلي (ثواني، نسبة، إكمال)</li>
+        <li>فلترة كورسات حسب المرحلة والصف والنظام</li>
+        <li>اختبارات (Quiz) كاملة مع محاولات</li>
+        <li>شهادات تلقائية + تحقق QR عام</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>🔔 الإشعارات (Observers)</h2>
+      <ul>
+        <li>CourseObserver · UserObserver · EnrollmentObserver</li>
+        <li>CourseNotificationService موحّد</li>
+        <li>Database channel · Queued · afterCommit</li>
+        <li>AdminUsersScope موحّد للأدمن</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>⚡ الأداء والتحسينات</h2>
+      <ul>
+        <li>OPcache مفعّل <span class="ok">-38% زمن</span></li>
+        <li>Cache file بدل database</li>
+        <li>myCourses بـ 2 استعلام بدل 22</li>
+        <li>completionStatsForUser مجمّعة</li>
+        <li>Indexes مركّبة + cache invalidation ذكي</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>🛡️ الأمان</h2>
+      <ul>
+        <li>2FA للأدمن والمدرّس</li>
+        <li>Rate limiting على login + قفل الحساب</li>
+        <li>Email verification</li>
+        <li>فيديوهات على private disk</li>
+        <li>Policies + Global Scopes</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>🧰 البنية التحتية</h2>
+      <ul>
+        <li>Sentry للأخطاء · Logs يومية (14 يوم)</li>
+        <li>Backups يومية 2:00 ص</li>
+        <li>Activity Log + تنظيف مجدول</li>
+        <li>Media staging + FinalizeMediaUpload job</li>
+        <li>PHPStan نظيف · Pint formatter</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="flow">
+    <h2>🔄 رحلة الطالب من التسجيل للشهادة</h2>
+    <div class="steps">
+      <div class="step">تسجيل + تحقق بريد</div><span class="arrow">←</span>
+      <div class="step">تصفح الكاتالوج المفلتر</div><span class="arrow">←</span>
+      <div class="step">اشتراك (مجاني/كوبون/Paymob)</div><span class="arrow">←</span>
+      <div class="step">مشاهدة + تتبع تقدم</div><span class="arrow">←</span>
+      <div class="step">اختبار الكورس</div><span class="arrow">←</span>
+      <div class="step">تقييم (بعد 70%)</div><span class="arrow">←</span>
+      <div class="step">شهادة QR موثقة 🎓</div>
+    </div>
+  </div>
+
+  <footer>منصة مدار — 3 أدوار · 14 نموذج · 25 اختبار feature · فحص كود كامل (PHPStan + Pint) ✅</footer>
+</div>
+</body>
+</html>

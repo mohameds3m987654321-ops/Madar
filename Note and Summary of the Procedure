@@ -1,0 +1,22 @@
+UserController
+│
+├── Authentication
+│   ├── login
+│   └── logout
+│
+├── Profile
+│   ├── profile
+│   └── updateProfile
+│
+├── Admin - Users
+│   ├── index
+│   ├── show
+│   ├── create
+│   ├── store
+│   ├── edit
+│   ├── update
+│   └── destroy
+│
+└── Admin - Roles
+    ├── makeTeacher
+    └── makeStudent
