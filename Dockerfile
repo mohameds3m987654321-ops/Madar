@@ -16,6 +16,7 @@ RUN composer install --no-dev --no-interaction --no-progress --prefer-dist --opt
 
 COPY . .
 
+# تم الاحتفاظ بإنشاء المجلدات والصلاحيات فقط وحذف أوامر artisan
 RUN mkdir -p \
         storage/app/private \
         storage/app/public \
@@ -25,9 +26,7 @@ RUN mkdir -p \
         storage/logs \
         bootstrap/cache \
     && chown -R www-data:www-data storage bootstrap/cache \
-    && chmod -R ug+rwX storage bootstrap/cache \
-    && php artisan package:discover --ansi \
-    && php artisan storage:link --force
+    && chmod -R ug+rwX storage bootstrap/cache
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 COPY deployment/railway/supervisord.conf /etc/supervisor/conf.d/railway.conf

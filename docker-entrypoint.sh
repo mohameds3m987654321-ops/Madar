@@ -1,26 +1,9 @@
-#!/bin/sh
-set -eu
+#!/usr/bin/env bash
+set -e
 
-mkdir -p \
-    /app/storage/app/private \
-    /app/storage/app/public \
-    /app/storage/framework/cache/data \
-    /app/storage/framework/sessions \
-    /app/storage/framework/views \
-    /app/storage/logs \
-    /app/bootstrap/cache
+# تشغيل أوامر لارافيل هنا لأن البيئة وقاعدة البيانات أصبحت جاهزة
+php artisan package:discover --ansi
+php artisan storage:link --force
 
-chown www-data:www-data \
-    /app/storage \
-    /app/storage/app \
-    /app/storage/app/private \
-    /app/storage/app/public \
-    /app/storage/framework \
-    /app/storage/framework/cache \
-    /app/storage/framework/cache/data \
-    /app/storage/framework/sessions \
-    /app/storage/framework/views \
-    /app/storage/logs \
-    /app/bootstrap/cache
-
-exec gosu www-data "$@"
+# تنفيذ الأمر الأساسي (تشغيل Supervisord)
+exec "$@"
