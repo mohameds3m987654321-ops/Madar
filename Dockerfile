@@ -1,18 +1,9 @@
-FROM node:22-alpine AS frontend
-
-WORKDIR /app
-
-COPY package.json package-lock.json ./
-RUN npm ci
-
-COPY . .
-RUN npm run build
-
 FROM php:8.3-cli
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends gosu libcurl4-openssl-dev libicu-dev libonig-dev libzip-dev supervisor unzip \
-    && docker-php-ext-install bcmath curl intl mbstring pdo_mysql pcntl zip \
+    && apt-get install -y --no-install-recommends gosu libcurl4-openssl-dev libfreetype6-dev libicu-dev libjpeg62-turbo-dev libonig-dev libpng-dev libzip-dev supervisor unzip \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install bcmath curl gd intl mbstring pdo_mysql pcntl zip \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
@@ -24,7 +15,6 @@ COPY composer.json composer.lock ./
 RUN composer install --no-dev --no-interaction --no-progress --prefer-dist --optimize-autoloader --no-scripts
 
 COPY . .
-COPY --from=frontend /app/public/build ./public/build
 
 RUN mkdir -p \
         storage/app/private \
