@@ -17,11 +17,17 @@ use Laravel\Fortify\Events\TwoFactorAuthenticationConfirmed;
 use Laravel\Fortify\Events\ValidTwoFactorAuthenticationCodeProvided;
 use Laravel\Fortify\Fortify;
 use Laravel\Horizon\Horizon;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
+        // إجبار HTTPS في بيئة الإنتاج على Railway
+        if ($this->app->environment('production')) {
+            URL::forceScheme('https');
+        }
+
         Fortify::twoFactorChallengeView('two-factor-challenge');
 
         User::observe(UserObserver::class);
